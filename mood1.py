@@ -125,7 +125,7 @@ if st.button("Reflect with AI"):
         st.subheader(f"Inspirational Quote for Mood: {mood.capitalize()}")
         st.markdown(f"> {quote}")
 
-        st.subheader("Your Thoughts")
+        st.subheader("Poem")
         st.text_area("", value=poem, height=150, key="poem_output")
 
         st.subheader("Calming Image")
@@ -133,3 +133,4 @@ if st.button("Reflect with AI"):
             st.image(img_url, use_container_width=True)
         else:
             st.write("No image available for this mood.")
+
