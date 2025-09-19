@@ -69,7 +69,7 @@ mood_to_quotes = {
 mood_to_images = {
     "calm": "image/anxiety.jpg",
     "sad": "https://images.unsplash.com/photo-1534043464124-3be32fe00c02?q=80&w=1740&auto=format&fit=crop",
-    "anxious": "https://images.unsplash.com/photo-1549488344-934d402b11e2?q=80&w=1740&auto=format&fit=crop",
+    "anxious": "image/calm 2.jpg",
     "stressed": "https://images.unsplash.com/photo-1549488344-934d402b11e2?q=80&w=1740&auto=format&fit=crop",
     "lonely": "https://images.unsplash.com/photo-1549488344-934d402b11e2?q=80&w=1740&auto=format&fit=crop",
     "grateful": "https://images.unsplash.com/photo-1549488344-934d402b11e2?q=80&w=1740&auto=format&fit=crop",
@@ -133,5 +133,6 @@ if st.button("Reflect with AI"):
             st.image(img_url, use_container_width=True)
         else:
             st.write("No image available for this mood.")
+
 
 
