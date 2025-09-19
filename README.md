@@ -18,7 +18,7 @@ This app is built with Streamlit, which provides a user-friendly and interactive
 
 Getting Started 🚀
 Live Demo
-You can experience the live application here: [https://youth-mental-wellness-rcjz87gibve47r8ama6kjc.streamlit.app/]
+You can experience the live application here: https://youth-mental-wellness-rcjz87gibve47r8ama6kjc.streamlit.app/
 
 Local Setup
 To run this project on your machine, first clone the repository, then install the required dependencies, and finally, run the Streamlit app.
@@ -33,5 +33,6 @@ About the Developer 🧑‍💻
 This project was created for the Gen AI Hackathon. Feel free to connect with me and follow my work on:
 
 
-GitHub: https://github.com/Aryan0819/
+GitHub: https://github.com/Aryan0819
+        https://github.com/Poonam-Kashyap12
 # Youth-Mental-Wellness
