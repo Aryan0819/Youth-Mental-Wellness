@@ -1,4 +1,6 @@
 MindMate AI 🧠
+
+
 An empathetic AI companion for mental wellness, powered by Groq and Streamlit.
 
 Overview & Purpose 💡
