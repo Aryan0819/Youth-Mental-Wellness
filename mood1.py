@@ -47,22 +47,52 @@ client = Groq(api_key=GROQ_API_KEY)
 # Model to use
 GROQ_CHAT_MODEL = "llama-3.3-70b-versatile"
 
+# =============================
 # Quotes Text
+# =============================
 quotes_text = """
 1. It’s easy to stand in the crowd but it takes courage to stand alone.
 2. Loneliness is not lack of company, loneliness is lack of purpose.
-... (all your quotes)
+3. The woman who follows the crowd will usually go no further than the crowd. The woman who walks alone is likely to find herself in places no one has ever been before.
+4. The thing that makes you exceptional, if you are at all, is inevitably that which makes you lonely.
+5. Time spent undistracted and alone, in self-examination, journaling, meditation, resolves the unresolved and takes us from mentally fat to fit.
+6. When they are alone they want to be with others, and when they are with others they want to be alone. After all, human beings are like that.
+7. The price of being a sheep is boredom. The price of being a wolf is loneliness. Choose one or the other with great care.
+8. Loneliness is a tax we have to pay to atone for a certain complexity of mind.
+9. If you are never alone, you cannot know yourself.
+10. By all means use sometimes to be alone. Salute thyself; see what thy soul doth wear.
+11. We feel alone, and in this we are connected.
+12. Every single human being who is alive has felt this kind of pain, hopelessness, and loneliness at one time or another. We are all connected through this shared pain and struggle.
+13. Our great depression is our lives. We’ve all been raised on television to believe that one day we’d all be millionaires, and movie gods, and rock stars, but we won’t. We’re slowly learning that fact. And we’re very, very pissed off.
+14. The worst part of holding the memories is not the pain. It’s the loneliness of it. Memories need to be shared.
+15. Remember never to say that you are alone, for you are not alone; nay, God is within, and your genius is within.
+16. Lonely is not being alone, it’s the feeling that no one cares.
+17. What a lovely surprise to discover how unlonely being alone can be.
+18. If you are afraid of being lonely, don’t try to be right.
+19. After 10 years of depression and loneliness, I realized the person I missed the most was not another, but myself.
+20. The reality is life is a single-player game. You’re born alone. You’re going to die alone. All of your interpretations are alone. All your memories are alone. You’re gone in three generations and nobody cares. Before you showed up, nobody cared. It’s all single-player.
+21. Loneliness isn’t the physical absence of other people, he said – it’s the sense that you’re not sharing anything that matters with anyone else.
+22. You cannot be lonely if you like the person you’re alone with.
+23. I don’t mind being alone. I just don’t want to be part of the crowd.
+24. It is an interesting paradox. Despite the fact that people today are rarely alone, we are increasingly lonely. Michael Easter.
+25. He who’s mind is not steady does not find happiness either amongst the people or in the solitude of the forest. When alone, he longs for company, and when in company, he longs for solitude.
+26. Although I am a typical loner in my daily life, my awareness of belonging to the invisible community of those who strive for truth, beauty, and justice has prevented me from feelings of isolation.
 """
 
+# Filter out empty lines and whitespace to create a clean list
+quotes_list = [line.strip() for line in quotes_text.strip().split('\n') if line.strip()]
+
+# =============================
 # Mood-to-Quote Mapping
+# =============================
 mood_to_quotes = {
-    "calm": [quotes_text.split('\n')[4], quotes_text.split('\n')[9]],
-    "sad": [quotes_text.split('\n')[11], quotes_text.split('\n')[13]],
-    "anxious": [quotes_text.split('\n')[24], quotes_text.split('\n')[7]],
-    "stressed": [quotes_text.split('\n')[6], quotes_text.split('\n')[19]],
-    "lonely": [quotes_text.split('\n')[1], quotes_text.split('\n')[3]],
-    "grateful": [quotes_text.split('\n')[10], quotes_text.split('\n')[14]],
-    "energized": [quotes_text.split('\n')[0], quotes_text.split('\n')[22]],
+    "calm": [quotes_list[4], quotes_list[9], quotes_list[16], quotes_list[21]],
+    "sad": [quotes_list[11], quotes_list[13], quotes_list[18]],
+    "anxious": [quotes_list[24], quotes_list[6]],
+    "stressed": [quotes_list[5], quotes_list[18]],
+    "lonely": [quotes_list[1], quotes_list[3], quotes_list[4]],
+    "grateful": [quotes_list[9], quotes_list[13]],
+    "energized": [quotes_list[0], quotes_list[22], quotes_list[25]],
 }
 
 # Mood-to-Image Mapping (Use public URLs)
@@ -126,4 +156,5 @@ if st.button("Reflect with AI"):
         if img_url:
             st.image(img_url, use_container_width=True)
         else:
+
             st.write("No image available for this mood.")
