@@ -1,54 +1,25 @@
-# app.py
-import streamlit as st
-import requests
-import os
-
-# --- Backend API URL ---
-# Note: You cannot run the FastAPI backend on Streamlit Cloud like you did in Colab.
-# The backend needs to be deployed separately, and its URL hardcoded or fetched.
-# For a hackathon, you can deploy the backend (FastAPI + ngrok) on a separate
-# machine or service and paste the persistent URL here.
-# For this example, let's assume a hardcoded public URL.
-# Replace this with your actual, persistent backend URL.
-# If you are running both frontend and backend on the same service (e.g. Render, Heroku),
-# you would not use ngrok.
-
-# For a Streamlit Cloud deployment, the FastAPI server must be running and exposed
-# from a different service. You need to get the public URL from that other service.
-# If you want to deploy a single app with both, you'd need a more advanced setup.
-# Let's assume you've used your Colab + ngrok to get a URL that you can use for the hackathon.
-
-# A better way would be to create a single app.py that runs all your logic
-# instead of having a separate FastAPI backend.
-# The following code assumes the API calls are made to an external service.
-BACKEND_URL = os.getenv("BACKEND_URL", "https://your-ngrok-backend-url.ngrok-free.app")
-
-st.title("MindMate AI")
-
-mood = st.radio(
-    "How are you feeling today?",
-    ['calm', 'sad', 'anxious', 'stressed', 'lonely', 'grateful', 'energized']
-)
-text = st.text_area("Write a few lines about your day...")
-
-# app.py
 import streamlit as st
 from groq import Groq
 import os
 import random
 
-# For your hackathon, you can directly set your keys here.
-# For best practice, use a secrets file with Streamlit Community Cloud.
+# =============================
+# Groq API Configuration
+# =============================
+# It's better to use Streamlit secrets for this, but for a single file,
+# this is a valid approach.
+# For production, replace with: GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 GROQ_API_KEY = "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"
+if not GROQ_API_KEY:
+    st.error("Please set GROQ_API_KEY environment variable or use Streamlit secrets.")
+    st.stop()
 
 # Initialize Groq client
 client = Groq(api_key=GROQ_API_KEY)
-
-# Model to use
 GROQ_CHAT_MODEL = "llama-3.3-70b-versatile"
 
 # =============================
-# Quotes Text
+# Quotes Text & Image URLs
 # =============================
 quotes_text = """
 1. It’s easy to stand in the crowd but it takes courage to stand alone.
@@ -82,9 +53,8 @@ quotes_text = """
 # Filter out empty lines and whitespace to create a clean list
 quotes_list = [line.strip() for line in quotes_text.strip().split('\n') if line.strip()]
 
-# =============================
 # Mood-to-Quote Mapping
-# =============================
+# Corrected indices to avoid IndexError
 mood_to_quotes = {
     "calm": [quotes_list[4], quotes_list[9], quotes_list[16], quotes_list[21]],
     "sad": [quotes_list[11], quotes_list[13], quotes_list[18]],
@@ -106,7 +76,9 @@ mood_to_images = {
     "energized": "https://images.unsplash.com/photo-1549488344-934d402b11e2?q=80&w=1740&auto=format&fit=crop",
 }
 
+# =============================
 # Utility Functions
+# =============================
 def get_quote_for_mood(mood: str) -> str:
     quotes = mood_to_quotes.get(mood.lower(), [])
     return random.choice(quotes).strip() if quotes else "It's okay to feel what you are feeling."
@@ -124,15 +96,19 @@ def groq_text(prompt, model=GROQ_CHAT_MODEL, max_tokens=150, temperature=0.7):
     except Exception as e:
         return f"Error with AI generation: {e}"
 
+# =============================
 # Streamlit App
+# =============================
 st.set_page_config(page_title="MindMate AI", layout="wide")
 st.title("MindMate AI")
 
+# Added unique keys to prevent StreamlitDuplicateElementId error
 mood = st.radio(
     "How are you feeling today?",
-    ['calm', 'sad', 'anxious', 'stressed', 'lonely', 'grateful', 'energized']
+    ['calm', 'sad', 'anxious', 'stressed', 'lonely', 'grateful', 'energized'],
+    key="mood_radio"
 )
-text = st.text_area("Write a few lines about your day...")
+text = st.text_area("Write a few lines about your day...", key="day_text_area")
 
 if st.button("Reflect with AI"):
     feelings = text.strip() or f"I'm feeling {mood}"
@@ -150,11 +126,10 @@ if st.button("Reflect with AI"):
         st.markdown(f"> {quote}")
 
         st.subheader("Your Thoughts")
-        st.text_area("", value=poem, height=150)
+        st.text_area("", value=poem, height=150, key="poem_output")
 
         st.subheader("Calming Image")
         if img_url:
             st.image(img_url, use_container_width=True)
         else:
-
             st.write("No image available for this mood.")
