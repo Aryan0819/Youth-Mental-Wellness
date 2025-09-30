@@ -9,7 +9,7 @@ import random
 # It's better to use Streamlit secrets for this, but for a single file,
 # this is a valid approach.
 # For production, replace with: GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
-GROQ_API_KEY = "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"
+GROQ_API_KEY = "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"
 if not GROQ_API_KEY:
     st.error("Please set GROQ_API_KEY environment variable or use Streamlit secrets.")
     st.stop()
@@ -133,6 +133,7 @@ if st.button("Reflect with AI"):
             st.image(img_url, use_container_width=True)
         else:
             st.write("No image available for this mood.")
+
 
 
 
