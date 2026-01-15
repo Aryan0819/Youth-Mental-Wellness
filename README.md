@@ -7,7 +7,6 @@
 
 <p align="center">
 <a href="https://github.com/Aryan0819/Youth-Mental-Wellness"><img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
-<a href="https://www.linkedin.com/in/aryan-raj-620640352/"><img src="https://img.shields.io/badge/LinkedIn-Profile-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
 </p>
 
 ---
@@ -51,3 +50,8 @@ cd Youth-Mental-Wellness
 
 # Install the required dependencies
 pip install -r requirements.txt
+
+🧑‍💻 About the Developers
+This project was built with ❤️ by:
+Aryan Raj — https://github.com/Aryan0819
+Poonam Kashyap — https://https://github.com/Poonam-Kashyap12
