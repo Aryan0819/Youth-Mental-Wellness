@@ -50,8 +50,23 @@ cd Youth-Mental-Wellness
 
 # Install the required dependencies
 pip install -r requirements.txt
+---
 
-🧑‍💻 About the Developers
+### 🧑‍💻 About the Developers
 This project was built with ❤️ by:
-Aryan Raj — https://github.com/Aryan0819
-Poonam Kashyap — https://https://github.com/Poonam-Kashyap12
+
+<p align="left">
+  <a href="https://github.com/Aryan0819">
+    <img src="https://img.shields.io/badge/Aryan%20Raj-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="https://github.com/Poonam-Kashyap12">
+    <img src="https://img.shields.io/badge/Poonam%20Kashyap-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
+
+| Developer | Role | GitHub Profile |
+| :--- | :--- | :--- |
+| **Aryan Raj** | Lead Developer | [@Aryan0819](https://github.com/Aryan0819) |
+| **Poonam Kashyap** | Contributor | [@Poonam-Kashyap12](https://github.com/Poonam-Kashyap12) |
+
+---
