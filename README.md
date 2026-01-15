@@ -50,6 +50,7 @@ cd Youth-Mental-Wellness
 
 # Install the required dependencies
 pip install -r requirements.txt
+
 ---
 
 ### 🧑‍💻 About the Developers
