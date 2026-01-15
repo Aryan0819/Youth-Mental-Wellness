@@ -90,5 +90,5 @@ Built with ❤️ by:
 
 | Developer | Role | GitHub |
 |---------|------|--------|
-| **Aryan Raj** | Lead Developer | [@Aryan0819](https://github.com/Aryan0819) |
-| **Poonam Kashyap** | Contributor | [@Poonam-Kashyap12](https://github.com/Poonam-Kashyap12) |
+| **Poonam Kashyap** | Lead Developer | [@Poonam-Kashyap12](https://github.com/Poonam-Kashyap12) |
+| **Aryan Raj** | Contributor | [@Aryan0819](https://github.com/Aryan0819) |
